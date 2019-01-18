@@ -13,8 +13,14 @@ animal_id          --     Unique id for animal
 animal_type        --     Cat, dog, or other (including at least one bat!).                                                         
 breed             --      Animal breed. Many animals are generic mixed-breeds, e.g. "Long-haired mix".  
 color             --      Color of the animal's fur, if it has fur.                                                                      
-date_of_birth     --      date of birth of animal                                                                                         datetime        --        time of birth of animal                                                                                         monthyear      --         Month and year of birth of animal                                                                                
-name               --     Name of animal                                                                                                    outcome_subtype    --     Subtype of animal at the time it left the shelter                                                                outcome_type       --     Ultimate outcome for this animal. Possible entries include transferred,[mercy] euthanized, adopted.              sex_upon_outcome   --     Sex of animal at the time it left the shelter                                                                    count             --      No. of animal                                                                                                    sex              --       sex of animal                                                                                                     
+date_of_birth     --      date of birth of animal
+monthyear      --         Month and year of birth of animal
+datetime        --        time of birth of animal 
+name               --     Name of animal
+outcome_type       --     Ultimate outcome for this animal. Possible entries include transferred,[mercy] euthanized, adopted. 
+sex_upon_outcome   --     Sex of animal at the time it left the shelter
+count             --      No. of animal
+sex              --       sex of animal
 
 There are some other column as well.
 
