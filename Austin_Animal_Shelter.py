@@ -301,8 +301,8 @@ pca_exp_var.set_index('components', inplace=True)
 pca_exp_var.plot(kind='line', linewidth=5, figsize=(15, 5))
 
 
-## Adoption and Transfer Prediction Model
-feature_union = FeatureUnion([
+## Adoption and Transfer Prediction Model (Random Forest Classifier model) #pipeline to chain multiple estimators 
+feature_union = FeatureUnion([                                             # featureunion to chain multiple dimension reduction techniques
     ('pca', PCA()),
     ('kbest', SelectKBest())
 ])
@@ -326,8 +326,8 @@ print(np.mean(cv_score))
 
 print(accuracy_score(y_train, cv_predict_score))
 
-## Accuracy using predict()
-rf_pred = prediction_model.predict(x_test_scaled)
+## Accuracy using predict()       
+rf_pred = prediction_model.predict(x_test_scaled)  # predict() to predict the outcomes using the test data  
 print(accuracy_score(y_test, rf_pred))
 
 ## Visualization of model using Confusion Matrix
