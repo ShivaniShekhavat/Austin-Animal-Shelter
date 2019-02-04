@@ -71,12 +71,12 @@ cats_df.head()
 
 outcome_df.to_csv('aac_shelter_outcome.csv',index=False, encoding='utf-8')
 
-# count of observation in dataset
+# count of observation in dataset ( Feautre Engineering)
 cats_df['count'] = 1
-cats_df['sex'] = np.where(cats_df['sex_upon_outcome'].str.contains('Male'), 'Male', 'Female')
+cats_df['sex'] = np.where(cats_df['sex_upon_outcome'].str.contains('Male'), 'Male', 'Female') #sex_upon_outcome = Cat's gender. Splitting into two sex and neuter/Spay.
 cats_df['Spay/Neuter'] = np.where(cats_df['sex_upon_outcome'].str.contains('Intact'), 'No', 'Yes')
 
-# heads(first5 row) of dataset we are dealing with
+# heads(first5 row) of dataset we are dealing with also splitting age column into day (Can be changed into weeks, months, and years as needed)
 cats_df['age_upon_outcome'].head()
 
 cats_df = cats_df[cats_df['age_upon_outcome'] != 'NULL']
@@ -263,13 +263,13 @@ scaler = preprocessing.StandardScaler()
 x_train_scaled = scaler.fit_transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
-## Random Forest
+## Random Forest model (prediction moddel)
 rf_classifier = RandomForestClassifier(n_estimators=250, criterion='gini', 
                                        class_weight='balanced_subsample', bootstrap=True, oob_score=True)
 
 rf_classifier.fit(x_train, y_train)
 
-## Important Feature
+## Important Feature (random forest)
 feature_importances = rf_classifier.feature_importances_
 
 importances = pd.DataFrame({'importance': feature_importances, 'feature': xnames}, 
